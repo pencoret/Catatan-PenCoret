@@ -6,6 +6,7 @@
   <title>{{ with .Params.seo_title }}{{ . }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}Catatan PenCoret — Situs Informasi & Opini{{ end }}">
   <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
@@ -17,6 +18,12 @@
   {{ end }}
 
   <style>
+    :root {
+      /* Ganti kode warna di bawah ini agar persis dengan warna utama favicon.png */
+      --brand-color: #991b1b;
+      --brand-hover: #7f1d1d;
+    }
+
     * { box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.65; color: #1f2937; background: #ffffff; margin: 0; padding: 0; }
     .container { max-width: 740px; margin: 0 auto; padding: 0 16px; }
@@ -25,7 +32,7 @@
     .topbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; max-width: 740px; margin: 0 auto; gap: 10px; }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
     .brand img { height: 28px; width: auto; display: block; flex-shrink: 0; }
-    .brand-text { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em; color: #b91c1c; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-text { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em; color: var(--brand-color); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     .actions { display: flex; align-items: center; gap: 4px; flex-shrink: 0; position: relative; }
     .icon-btn { background: none; border: none; color: #1f2937; width: 36px; height: 36px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; }
@@ -47,13 +54,13 @@
     .nav-scroll { max-width: 740px; margin: 0 auto; display: flex; overflow-x: auto; white-space: nowrap; padding: 0 12px; scrollbar-width: none; }
     .nav-scroll::-webkit-scrollbar { display: none; }
     .nav-scroll a { text-decoration: none; color: #374151; font-weight: 600; font-size: 0.92rem; padding: 11px 12px; border-bottom: 2px solid transparent; margin-bottom: -2px; }
-    .nav-scroll a:hover, .nav-scroll a.active { color: #b91c1c; border-bottom-color: #b91c1c; }
+    .nav-scroll a:hover, .nav-scroll a.active { color: var(--brand-color); border-bottom-color: var(--brand-color); }
 
     /* Konten & Artikel */
     main { max-width: 740px; margin: 0 auto; padding: 18px 16px; }
     h1 { font-size: 1.75rem; line-height: 1.28; margin: 8px 0 12px; color: #111827; }
     .meta { font-size: 0.85rem; color: #6b7280; margin-bottom: 10px; }
-    .badge { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #ffffff; background: #b91c1c; }
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #ffffff; background: var(--brand-color); }
     .badge-info { background: #1d4ed8; }
     .badge-opini { background: #047857; }
     .badge-budaya { background: #7c2d12; }
@@ -62,7 +69,7 @@
     figure { margin: 0 0 18px; }
     figure img { width: 100%; height: auto; border-radius: 6px; display: block; }
     figcaption { font-size: 0.8rem; color: #6b7280; margin-top: 6px; }
-    .ringkasan { background: #f9fafb; border-left: 4px solid #b91c1c; padding: 12px 16px; margin: 22px 0; border-radius: 0 6px 6px 0; }
+    .ringkasan { background: #f9fafb; border-left: 4px solid var(--brand-color); padding: 12px 16px; margin: 22px 0; border-radius: 0 6px 6px 0; }
     .tags { margin-top: 22px; font-size: 0.85rem; color: #4b5563; }
 
     .item { padding: 20px 0; border-bottom: 1px solid #e5e7eb; }
@@ -77,7 +84,7 @@
   <header>
     <div class="topbar">
       <a href="/" class="brand">
-        <img src="/images/logo.png" alt="Logo Catatan PenCoret" onerror="this.style.display='none'">
+        <img src="/images/favicon.png" alt="Logo Catatan PenCoret">
         <span class="brand-text">CATATAN PENCORET</span>
       </a>
 
@@ -87,9 +94,9 @@
 
         <div class="dropdown-menu" id="moreMenu">
           <a href="/">Beranda</a>
-          <a href="/#kategori-info">Informasi</a>
-          <a href="/#kategori-opini">Opini</a>
-          <a href="/#kategori-budaya">Seni &amp; Budaya</a>
+          <a href="/#informasi">Informasi</a>
+          <a href="/#opini">Opini</a>
+          <a href="/#seni-budaya">Seni &amp; Budaya</a>
         </div>
       </div>
     </div>
