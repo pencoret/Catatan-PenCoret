@@ -39,23 +39,22 @@
     }
     .brand-lockup {
       display: inline-flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
+      gap: 8px;
       width: fit-content;
     }
     .brand-cattn {
       font-family: 'Oswald', Arial, sans-serif;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
-      line-height: 0.95;
-      letter-spacing: 5px;
+      line-height: 1;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--accent-red);
-      margin-bottom: 2px;
-      padding-left: 5px;
     }
     .brand-pc-img {
-      height: 46px;
+      height: 50px;
       width: auto;
       display: block;
     }
@@ -160,8 +159,8 @@
   <header>
     <div class="topbar">
       <a href="index.html" class="brand-lockup">
-        <span class="brand-cattn">CATTN</span>
         <img src="favicon.png" alt="Logo PenCoret" class="brand-pc-img" />
+        <span class="brand-cattn">CATTN</span>
       </a>
       <div class="tagline">Situs Informasi &amp; Opini</div>
     </div>
