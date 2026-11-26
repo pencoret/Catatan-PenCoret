@@ -8,16 +8,32 @@ content:
     type: collection
     path: content/catatan
     view:
-      fields: [title, rubrik, date]
+      fields: [title, kategori, date]
       primary: title
       sort: [date, title]
     fields:
       - name: title
-        label: Judul Tulisan
+        label: Judul H1
         type: string
         required: true
-      - name: rubrik
-        label: Rubrik
+      - name: seo_title
+        label: Judul SEO
+        type: string
+      - name: slug
+        label: Link URL / Slug
+        type: string
+      - name: description
+        label: Deskripsi
+        type: text
+      - name: tags
+        label: Tag
+        type: string
+      - name: date
+        label: Tanggal
+        type: date
+        required: true
+      - name: kategori
+        label: Kategori
         type: select
         options:
           values:
@@ -26,17 +42,19 @@ content:
             - Seni & Budaya
             - Teknologi
             - Catatan
-        default: Informasi
-      - name: date
-        label: Tanggal
-        type: date
-        required: true
-      - name: sumber
-        label: Sumber / Rujukan (Opsional)
+        default: Catatan
+      - name: gambar
+        label: Foto
+        type: image
+      - name: alt_text
+        label: Alt Text
+        type: string
+      - name: sumber_foto
+        label: Deskripsi foto / Sumber
         type: string
       - name: ringkasan
         label: Ringkasan Akhir
         type: text
       - name: body
-        label: Isi Tulisan (Gaya Berita / Laporan)
+        label: Isi Tulisan
         type: rich-text
