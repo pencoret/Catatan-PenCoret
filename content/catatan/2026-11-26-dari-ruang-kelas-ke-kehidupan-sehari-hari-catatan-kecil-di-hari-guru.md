@@ -3,8 +3,8 @@ title: "Dari Ruang Kelas ke Kehidupan Sehari-Hari: Catatan Kecil di Hari Guru"
 seo_title: "Catatan Hari Guru: Peran Pendidik dan Makna Belajar Sehari-Hari |
   Catatan PenCoret"
 slug: catatan-kecil-di-hari-guru
-description: Refleksi ringan tentang peran pendidik dalam membimbing karakter
-  dan semangat belajar siswa di tengah perubahan zaman.
+description: "Refleksi ringan tentang peran pendidik dalam membimbing karakter
+  dan semangat belajar siswa di tengah perubahan zaman. "
 tags: Hari Guru, Pendidikan, Catatan, Refleksi
 date: 2026-11-26
 kategori: Catatan
