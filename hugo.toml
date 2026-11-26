@@ -1,0 +1,9 @@
+baseURL = "https://catatan-pencoret.pages.dev/"
+languageCode = "id"
+title = "Catatan PenCoret | Situs Informasi & Opini"
+
+[permalinks]
+  catatan = "/:slug/"
+
+[taxonomies]
+  tag = "tags"
