@@ -17,36 +17,139 @@
   {{ end }}
 
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1f2937; background: #ffffff; margin: 0; padding: 0; }
-    header, main, footer { max-width: 740px; margin: 0 auto; padding: 16px 20px; }
-    header { border-bottom: 1px solid #e5e7eb; padding-top: 24px; padding-bottom: 16px; }
-    header a { text-decoration: none; color: #111827; font-weight: 700; font-size: 1.35rem; }
-    header p { margin: 4px 0 0; font-size: 0.9rem; color: #6b7280; }
-    h1 { font-size: 1.8rem; line-height: 1.3; margin-bottom: 10px; color: #111827; }
-    .meta { font-size: 0.88rem; color: #6b7280; margin-bottom: 18px; }
-    .badge { background: #f3f4f6; color: #374151; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
-    figure { margin: 0 0 22px; }
-    figure img { width: 100%; height: auto; border-radius: 8px; display: block; }
-    figcaption { font-size: 0.82rem; color: #6b7280; margin-top: 6px; }
-    .ringkasan { background: #f9fafb; border-left: 4px solid #111827; padding: 12px 16px; margin: 22px 0; border-radius: 0 6px 6px 0; }
-    .tags { margin-top: 24px; font-size: 0.85rem; color: #4b5563; }
-    .card { border-bottom: 1px solid #e5e7eb; padding: 18px 0; }
-    .card h2 { margin: 6px 0; font-size: 1.25rem; }
-    .card h2 a { text-decoration: none; color: #111827; }
-    .card h2 a:hover { text-decoration: underline; }
-    footer { border-top: 1px solid #e5e7eb; margin-top: 36px; font-size: 0.85rem; color: #6b7280; text-align: center; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.65; color: #1f2937; background: #ffffff; margin: 0; padding: 0; }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 16px; }
+
+    /* Top Bar */
+    .topbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; max-width: 740px; margin: 0 auto; gap: 10px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+    .brand img { height: 28px; width: auto; display: block; flex-shrink: 0; }
+    .brand-text { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em; color: #b91c1c; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .actions { display: flex; align-items: center; gap: 4px; flex-shrink: 0; position: relative; }
+    .icon-btn { background: none; border: none; color: #1f2937; width: 36px; height: 36px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; }
+    .icon-btn:hover { background: #f3f4f6; }
+
+    /* Search Bar Toggle */
+    .search-box { display: none; max-width: 740px; margin: 0 auto; padding: 0 16px 12px; }
+    .search-box.open { display: block; }
+    .search-box input { width: 100%; padding: 9px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.95rem; }
+
+    /* Dropdown Titik 3 */
+    .dropdown-menu { display: none; position: absolute; right: 0; top: 42px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; min-width: 170px; z-index: 50; padding: 6px 0; }
+    .dropdown-menu.open { display: block; }
+    .dropdown-menu a { display: block; padding: 8px 14px; color: #1f2937; text-decoration: none; font-size: 0.9rem; }
+    .dropdown-menu a:hover { background: #f9fafb; }
+
+    /* Bilah Kategori */
+    .nav-wrap { border-top: 1px solid #f3f4f6; border-bottom: 2px solid #e5e7eb; background: #ffffff; }
+    .nav-scroll { max-width: 740px; margin: 0 auto; display: flex; overflow-x: auto; white-space: nowrap; padding: 0 12px; scrollbar-width: none; }
+    .nav-scroll::-webkit-scrollbar { display: none; }
+    .nav-scroll a { text-decoration: none; color: #374151; font-weight: 600; font-size: 0.92rem; padding: 11px 12px; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+    .nav-scroll a:hover, .nav-scroll a.active { color: #b91c1c; border-bottom-color: #b91c1c; }
+
+    /* Konten & Artikel */
+    main { max-width: 740px; margin: 0 auto; padding: 18px 16px; }
+    h1 { font-size: 1.75rem; line-height: 1.28; margin: 8px 0 12px; color: #111827; }
+    .meta { font-size: 0.85rem; color: #6b7280; margin-bottom: 10px; }
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #ffffff; background: #b91c1c; }
+    .badge-info { background: #1d4ed8; }
+    .badge-opini { background: #047857; }
+    .badge-budaya { background: #7c2d12; }
+    .badge-tekno { background: #374151; }
+
+    figure { margin: 0 0 18px; }
+    figure img { width: 100%; height: auto; border-radius: 6px; display: block; }
+    figcaption { font-size: 0.8rem; color: #6b7280; margin-top: 6px; }
+    .ringkasan { background: #f9fafb; border-left: 4px solid #b91c1c; padding: 12px 16px; margin: 22px 0; border-radius: 0 6px 6px 0; }
+    .tags { margin-top: 22px; font-size: 0.85rem; color: #4b5563; }
+
+    .item { padding: 20px 0; border-bottom: 1px solid #e5e7eb; }
+    .item h2 { margin: 8px 0 6px; font-size: 1.35rem; line-height: 1.3; }
+    .item h2 a { text-decoration: none; color: #111827; font-weight: 800; }
+    .item p { margin: 8px 0 0; color: #374151; }
+
+    footer { max-width: 740px; margin: 28px auto 0; padding: 18px 16px 28px; border-top: 1px solid #e5e7eb; font-size: 0.85rem; color: #6b7280; text-align: center; }
   </style>
 </head>
 <body>
   <header>
-    <a href="/">Catatan PenCoret</a>
-    <p>Situs Informasi &amp; Opini</p>
+    <div class="topbar">
+      <a href="/" class="brand">
+        <img src="/images/logo.png" alt="Logo Catatan PenCoret" onerror="this.style.display='none'">
+        <span class="brand-text">CATATAN PENCORET</span>
+      </a>
+
+      <div class="actions">
+        <button type="button" class="icon-btn" id="searchToggle" aria-label="Cari">🔍</button>
+        <button type="button" class="icon-btn" id="moreToggle" aria-label="Menu lainnya">⋮</button>
+
+        <div class="dropdown-menu" id="moreMenu">
+          <a href="/">Beranda</a>
+          <a href="/#kategori-info">Informasi</a>
+          <a href="/#kategori-opini">Opini</a>
+          <a href="/#kategori-budaya">Seni &amp; Budaya</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-box" id="searchBox">
+      <input type="search" id="searchInput" placeholder="Cari judul atau topik catatan...">
+    </div>
+
+    <nav class="nav-wrap" aria-label="Kategori">
+      <div class="nav-scroll">
+        <a href="/" class="active">Terkini</a>
+        <a href="/#informasi">Informasi</a>
+        <a href="/#opini">Opini</a>
+        <a href="/#seni-budaya">Seni &amp; Budaya</a>
+        <a href="/#teknologi">Teknologi</a>
+        <a href="/#catatan">Catatan</a>
+      </div>
+    </nav>
   </header>
+
   <main>
     {{ block "main" . }}{{ end }}
   </main>
+
   <footer>
     &copy; {{ now.Year }} Catatan PenCoret
   </footer>
+
+  <script>
+    const searchToggle = document.getElementById('searchToggle');
+    const searchBox = document.getElementById('searchBox');
+    const searchInput = document.getElementById('searchInput');
+    const moreToggle = document.getElementById('moreToggle');
+    const moreMenu = document.getElementById('moreMenu');
+
+    searchToggle.addEventListener('click', () => {
+      searchBox.classList.toggle('open');
+      moreMenu.classList.remove('open');
+      if (searchBox.classList.contains('open')) searchInput.focus();
+    });
+
+    moreToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      moreMenu.classList.toggle('open');
+      searchBox.classList.remove('open');
+    });
+
+    document.addEventListener('click', () => {
+      moreMenu.classList.remove('open');
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        const q = searchInput.value.toLowerCase().trim();
+        document.querySelectorAll('.item').forEach((el) => {
+          const text = el.textContent.toLowerCase();
+          el.style.display = text.includes(q) ? '' : 'none';
+        });
+      });
+    }
+  </script>
 </body>
-  </html>
+</html>
