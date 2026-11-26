@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Berita — Beranda Redaksi</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f4f5f7;
+      --text: #111827;
+      --muted: #4b5563;
+      --accent: #0f4c81;
+      --accent-red: #b91c1c;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    header { border-bottom: 3px solid var(--accent); background: #fff; }
+    .topbar { max-width: 1140px; margin: 0 auto; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 24px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; }
+    .logo span { color: var(--accent-red); }
+    nav { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    nav ul { max-width: 1140px; margin: 0 auto; padding: 0 16px; list-style: none; display: flex; gap: 20px; overflow-x: auto; }
+    nav a { display: block; padding: 10px 0; text-decoration: none; color: var(--text); font-weight: 600; font-size: 14px; white-space: nowrap; }
+    nav a:hover { color: var(--accent); }
+    .container { max-width: 1140px; margin: 24px auto; padding: 0 16px; display: grid; grid-template-columns: 2fr 1fr; gap: 28px; }
+    .headline { border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 20px; }
+    .badge { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 3px; text-transform: uppercase; margin-bottom: 8px; }
+    .headline h1 { font-size: 28px; line-height: 1.25; margin-bottom: 10px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+    .sidebar-box { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 20px; }
+    .sidebar-box h2 { font-size: 16px; border-left: 4px solid var(--accent-red); padding-left: 10px; margin-bottom: 14px; }
+    .popular-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+    .popular-item:last-child { border-bottom: none; }
+    footer { background: #111827; color: #d1d5db; text-align: center; padding: 20px 16px; font-size: 13px; margin-top: 40px; }
+    @media (max-width: 768px) {
+      .container { grid-template-columns: 1fr; }
+      .headline h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo">BERITA<span>KOTA</span></div>
+      <div class="meta">Edisi Digital</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Terkini</a></li>
+        <li><a href="#">Nasional</a></li>
+        <li><a href="#">Daerah</a></li>
+        <li><a href="#">Ekonomi</a></li>
+        <li><a href="#">Teknologi</a></li>
+        <li><a href="#">Opini</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <article class="headline">
+        <span class="badge">Headline Utama</span>
+        <h1>Transformasi Media Digital Menuntut Kecepatan dan Kredibilitas Informasi</h1>
+        <div class="meta">Redaksi • Hari ini</div>
+        <p>Publikasi digital modern mengutamakan tata letak yang jelas, navigasi kategori yang mudah diakses, serta halaman baca yang nyaman di perangkat seluler maupun desktop.</p>
+      </article>
+      <article>
+        <span class="badge">Daerah</span>
+        <h2>Penguatan Layanan Publik Berbasis Data di Tingkat Kabupaten</h2>
+        <div class="meta">Liputan Daerah • Baru saja</div>
+        <p>Pemerintah daerah mendorong integrasi informasi layanan agar warga lebih mudah mengakses data dan pengumuman resmi.</p>
+      </article>
+    </section>
+
+    <aside>
+      <div class="sidebar-box">
+        <h2>Terpopuler</h2>
+        <div class="popular-item">1. Panduan Menyusun Rubrik Berita Agar Mudah Dipindai Pembaca</div>
+        <div class="popular-item">2. Mengapa Tipografi Bersih Menentukan Kenyamanan Baca Artikel</div>
+        <div class="popular-item">3. Optimasi Kecepatan Situs Statis untuk Pembaca Seluler</div>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    © 2026 Portal Berita — Hak cipta dilindungi.
+  </footer>
+</body>
+          </html>
