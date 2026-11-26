@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <article>
+    <div class="meta">
+      {{ with .Params.kategori }}<span class="badge">{{ . }}</span> &bull; {{ end }}
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+    </div>
+
+    <h1>{{ .Title }}</h1>
+
+    {{ with .Params.gambar }}
+    <figure>
+      <img src="{{ . }}" alt="{{ $.Params.alt_text | default $.Title }}" loading="eager">
+      {{ with $.Params.sumber_foto }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+    {{ end }}
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    {{ with .Params.ringkasan }}
+    <div class="ringkasan">
+      <strong>Ringkasan:</strong> {{ . }}
+    </div>
+    {{ end }}
+
+    {{ with .Params.tags }}
+    <div class="tags">
+      <strong>Tag:</strong> {{ . }}
+    </div>
+    {{ end }}
+  </article>
+{{ end }}
